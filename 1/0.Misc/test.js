@@ -1,5 +1,5 @@
-// const / let
+const today = {
+    month: "February"
+};
 
-const outputText = "first file run with Node.js";
-
-console.log(outputText);
+console.log(today.month)
