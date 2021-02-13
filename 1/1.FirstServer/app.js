@@ -4,22 +4,21 @@ const app = express();
 // to solve the assingment create a datatype to store data in
 // implement the two GET endpoints .. you can hardcode the ID for now
 
-app.get("/", (req, res) => 
+const users = [
+    {id: 0, name: "Peter", occupation: "Cook"},
+    {id: 1, name: "Andrea", occupation: "N/A"},
+    {id: 2, name: "Dennis", occupation: "Student"}
+] 
+
+
+app.get("/users", (req, res) => 
 {
-    res.send({ message: "this is my response"})
+    res.send({users})
 });
 
-app.get("/new-one/id", (req, res) => 
+app.get('/users/:id', (req, res) => 
 {
-    const id = 1;
-    res.send({ "something": "That you can do"})
+    res.send(users[req.params.id])
 });
 
 app.listen(8080);
-
-/**
- * {
-    "name": "peter",
-    "lastname": "jensens"
-}
- */
