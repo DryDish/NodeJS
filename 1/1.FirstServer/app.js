@@ -11,12 +11,12 @@ const users = [
 ] 
 
 
-app.get("/users", (req, res) => 
+app.get("/user", (req, res) => 
 {
     res.send({users})
 });
 
-app.get('/users/:id', (req, res) => 
+app.get('/user/:id', (req, res) => 
 {
     res.send(users[req.params.id])
 });
