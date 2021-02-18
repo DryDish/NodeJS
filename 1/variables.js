@@ -25,5 +25,3 @@ var myPreciousRing = "0";
     }
     console.log(scopedVariable);
 }
-
-function 
