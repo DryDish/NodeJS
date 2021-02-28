@@ -36,9 +36,9 @@ app.get("/title/:message/:other", (req, res) => {
 
 //post
 app.post("/whatever", (req, res) => {
-    // TODO - get what is in the body and send it back
-    console.log(req.body);
-    res.send({name: req.body.name});
+  // TODO - get what is in the body and send it back
+  console.log(req.body);
+  res.send({ name: req.body.name });
 });
 
 app.listen(8080);
