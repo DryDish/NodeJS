@@ -8,7 +8,7 @@ const app = express();
  *  The month
  */
 
- /* Object format
+/* Object format
 const month = {
   1: "January",
   2: "February",
@@ -24,7 +24,7 @@ const month = {
   12: "December",
 };
 */
- 
+
 // Array Format
 const month = [
   "January",
@@ -38,8 +38,8 @@ const month = [
   "September",
   "October",
   "November",
-  "December"
-]
+  "December",
+];
 
 console.log();
 
@@ -47,18 +47,17 @@ function currentDate() {
   return new Date();
 }
 
-function getDayString()
-{
-    day = [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sonday"
-    ];
-    return day[currentDate().getDay()];
+function getDayString() {
+  day = [
+    "Sonday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return day[currentDate().getDay()];
 }
 
 app.get("/datetime", (req, res) => {
@@ -79,6 +78,10 @@ app.get("/datetime/day", (req, res) => {
 
 app.get("/datetime/month", (req, res) => {
   res.send({ month: month[currentDate().getMonth()] });
+});
+
+app.get("/version", (req, res) => {
+  res.send({version: "0.0.1" });
 });
 
 app.listen(8080);
