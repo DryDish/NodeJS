@@ -15,6 +15,14 @@ app.get("/querystring", (req, res) => {
   res.send({ query: req.query });
 });
 
+const cat = require("./cat.json")
+
+console.log(cat);
+
+app.get("/cat", (req, res) => {
+  res.send(cat)
+})
+
 // give it the query string value: the best value
 // and return it to the client
 
@@ -41,4 +49,10 @@ app.post("/whatever", (req, res) => {
   res.send({ name: req.body.name });
 });
 
-app.listen(8080);
+app.listen(8080, (error) => {
+  if (error) 
+  {
+    console.log(error);
+  }
+  console.log("Server is running on 8080");
+});

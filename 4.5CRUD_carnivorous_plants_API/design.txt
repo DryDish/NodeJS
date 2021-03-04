@@ -1,0 +1,12 @@
+// Get
+"/plants"               - get a list of all plants
+"/plants/:id"           - get a plant by an id
+
+// Post
+"/plants"               - create new plant entry
+
+// PATCH /  PUT
+"plants/id"             - update an existing plant with an id
+
+// DELETE
+"plants/id"             - remove a listing of plant by ID
