@@ -11,12 +11,13 @@ app.get("/dragons", (req, res) => {
     res.sendFile(htmlFolder + "dragons.html");
 })
 
-
+const PORT = process.env.PORT || 8080;
+console.log(PORT)
 app.listen(8080, (error) => 
 {
     if (error)
     {
         console.log(error);
     }
-    console.log("Server is running on port:", 8080);
+    console.log("Server is running on port:", PORT);
 });
