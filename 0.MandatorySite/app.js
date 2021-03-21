@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 
-app.use(express.static(__dirname + "/public"));
 const htmlFolder = __dirname + "/public/static/";
 
 app.get("/", (req, res) => {
@@ -36,11 +35,18 @@ app.get("/session-six", (req, res) => {
   res.sendFile(htmlFolder + "session-six.html");
 });
 
-/*
- * To use a custom port run:
- * PORT=numberHere nodemon app.js
- * otherwise it defaults to 8080
- */
+
+
+
+// if not found will return 404, best to have it at the bottom
+// so the html can still load without css
+app.use(express.static(__dirname + "/public")); 
+
+
+// To use a custom port run:
+// PORT=numberHere nodemon app.js
+// otherwise it defaults to 8080
+// TODO -- OTHERS? 
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, (error) => {
