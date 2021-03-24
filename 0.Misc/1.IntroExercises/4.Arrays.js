@@ -31,7 +31,15 @@ friends.push(friend3);
 
 console.log("Printing the array of friends\n");
 console.dir(friends);
-
+let friend4 = {name: "New Friend", liar: false}
+// inserting friend4 into the array's index 2 without deleting anything
+friends.splice(2,0, friend4)
+console.log("Printing the array of friends\n");
+console.dir(friends);
+const poppedFriend = friends.pop();
+console.log("Friend list:")
+console.log(friends);
+console.log("popped friend:", poppedFriend);
 // --------------------------------------
 // Exercise 3 - Get the index of first occurrence of that value. 
 

@@ -10,11 +10,11 @@ let id = 3;
 let plants = [
   {
     id: 1,
-    title: "fire",
+    title: "Alnus glutinosa",
   },
   {
     id: 2,
-    title: "ice",
+    title: " Ilex verticillata",
   },
 ];
 
@@ -37,15 +37,24 @@ app.get("/dangerport", (req, res) => {
 // Query string
 app.get("/querystringhere", (req, res) => {
   console.log(req.query);
-  if (req.query.q === "spud") 
-  {
+  if (req.query.q === "spud") {
     return res.send({ type: "petite potato" });
-  } 
+  }
   return res.send({ type: "mature potato" });
 });
 
 app.get("/plants", (req, res) => {
   res.send(plants);
+});
+
+app.get("/plants/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const plant = listOfPlants.find((plant) => plant.id === id);
+  if (plant === undefined) {
+    res.status(404);
+    res.send({ error: "Id was not found" });
+  }
+  res.send(plant);
 });
 
 app.post("/plants", (req, res) => {
@@ -67,19 +76,34 @@ app.patch("plants/:id", (req, res) => {
     }
     return plant;
   });
-
-  res.send({ updated: updated });
+  if (updated === true) {
+    const plant = listOfPlants.find((plant) => plant.id === id);
+    res.send(plant);
+  } else {
+    res.status(404);
+    res.send({ error: "Id was not found" });
+  }
 });
 
 app.delete("/plants/:id", (req, res) => {
-  const delete_id = Number(req.params.id);
+  const deleteId = Number(req.params.id);
+  // count total plants before deletion
+  let plantsTotalBefore = plants.length;
+  // replace plants lit with a list of all plants that do not have the received ID
+  plants = plants.filter((plant) => plant.id != deleteId);
+  // recount total plants
+  let plantsTotalAfter = plants.length;
 
-  plants = plants.filter((plant) => plant.id != id);
-
-  res.send({});
+  // check if total plants has been reduced
+  if ((plantsTotalBefore = plantsTotalAfter)) {
+    res.status(404);
+    res.send({ error: "Id was not found" });
+  } else {
+    res.send({ status: "success" });
+  }
 });
 
-app.use(express.static(__dirname + "/public")); 
+app.use(express.static(__dirname + "/public"));
 
 const PORT = process.env.PORT || 8080;
 console.log(PORT);

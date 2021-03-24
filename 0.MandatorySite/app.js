@@ -11,12 +11,12 @@ app.get("/home", (req, res) => {
   res.sendFile(htmlFolder + "home.html");
 });
 
-app.get("/session-one", (req, res) => {
-  res.sendFile(htmlFolder + "session-one.html");
+app.get("/introduction", (req, res) => {
+  res.sendFile(htmlFolder + "introduction.html");
 });
 
-app.get("/session-two", (req, res) => {
-  res.sendFile(htmlFolder + "session-two.html");
+app.get("/express", (req, res) => {
+  res.sendFile(htmlFolder + "express.html");
 });
 
 app.get("/session-three", (req, res) => {

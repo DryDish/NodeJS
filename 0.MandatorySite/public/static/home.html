@@ -8,55 +8,42 @@
     <link rel="shortcut icon" href="favicon/favicon.ico" />
     <title>Session Overview</title>
   </head>
-  <body>
-    <div class="navbar">
-      <div class="navbar-elements">
-        <a class="navbar-text" href="/home">Home</a>
-        <a class="navbar-text" href="/session-one">Session One</a>
-        <a class="navbar-text" href="/session-two">Session Two</a>
-        <a class="navbar-text" href="/session-three">Session Three</a>
-        <a class="navbar-text" href="/session-four">Session Four</a>
-        <a class="navbar-text" href="/session-five">Session Five</a>
-        <a class="navbar-text" href="/session-six">Session Six</a>
-      </div>
+  <nav class="navbar">
+    <div class="navbar-elements">
+      <a class="navbar-text selected" href="/home">Home</a>
+      <a class="navbar-text" href="/introduction">Introduction</a>
+      <a class="navbar-text" href="/express">Express</a>
     </div>
-    <div class="core">
+  </nav>
+  <body>
+    <article class="core">
       <div class="flex-container">
+        <p style="margin: 15px 25px; font-size: 14px">
+          Welcome to my site! I have refactored this site multiple times,
+          and this "Home" section is not really needed anymore,
+          <br>i kept it in for legacy purposes though, enjoy your stay!
+          When you are ready to move on click on any button in the navigation bar.
+        </p>
         <div class="flex-item">
-          <p class="description-header">Session One</p>
+          <a href="https://www.youtube.com/watch?v=QuFTCirwmoM" target="_blank" class="description-header" style="text-decoration: none; color: black;">
+            Introduction
+          </a>
           <hr class="solid" />
-          <p class="description">Introduction to NodeJS</p>
+          <p class="description">Introduction to JavaScript</p>
         </div>
 
         <div class="flex-item">
-          <p class="description-header">Session Two</p>
+          <a href="https://www.youtube.com/watch?v=L18fPGfPjlU" target="_blank" class="description-header" style="text-decoration: none; color: black;">
+            Express
+          </a>
           <hr class="solid" />
-          <p class="description">My first server</p>
+          <p class="description">Introduction and usage of Express</p>
         </div>
-        <div class="flex-item">
-          <p class="description-header"> Session Three</p>
-          <hr class="solid" />
-          <p class="description">Time API</p>
-        </div>
-        <div class="flex-item">
-          <p class="description-header">Session Four</p>
-          <hr class="solid" />
-          <p class="description">Data server</p>
-        </div>
-        <div class="flex-item">
-          <p class="description-header">Session Five</p>
-          <hr class="solid" />
-          <p class="description">CRUD API</p>
-        </div>
-        <div class="flex-item">
-          <p class="description-header">Session Six</p>
-          <hr class="solid" />
-          <p class="description">Express Wide Web</p>
         </div>
       </div>
-    </div>
-    <div class="footer">
-      GitHub Repo : '
+    </article>
+    <footer class="footer">
+      GitHub repo -->
       <a href="https://github.com/IroniX2/NodeJS">
         <img
           src="/GitHub-32px.png"
@@ -64,6 +51,6 @@
           style="width: 18px; height: 18px"
         />
       </a>
-    </div>
+    </footer>
   </body>
 </html>
