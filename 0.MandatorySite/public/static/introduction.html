@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/text.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" href="css/display-style.css" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <script src="js/run_prettify.js"></script>
+    <title>Session One</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-elements">
+        <a class="navbar-text" href="/home">Home</a>
+        <a class="navbar-text selected" href="/introduction">Introduction</a>
+        <a class="navbar-text" href="/express">Express</a>
+      </div>
+    </nav>
+    <article>
+      <h2 class="banner"></h2>
+      <div class="accordion">
+        <!-- span to target fix closing accordion -->
+        <span class="target-fix" id="accordion"></span>
+
+        <!-- Basics -->
+        <div>
+          <!-- span to target fix accordion -->
+          <span class="target-fix" id="accordion1"></span>
+
+          <!-- Link to open accordion, hidden when open -->
+          <a href="#accordion1" id="open-accordion1" title="open">Basics</a>
+
+          <!-- Link to close accordion, hidden when closed -->
+          <a href="#accordion" id="close-accordion1" title="close">Basics</a>
+
+          <!-- Accordion content goes in this div -->
+          <div class="accordion-content">
+            <p>
+              Here is how you assign variables in JavaScript. Const for
+              variables that you do not plan on changing. Let for
+              changeable variables
+            </p>
+            <pre class="prettyprint">
+          <code>
+            const id = 1;
+            let phoneNumber = 66666666;</code>
+        </pre>
+            <p>To assign a string we add " " to it</p>
+            <pre class="prettyprint">
+          <code>
+            let sampleString = "string here"</code>
+        </pre>
+          </div>
+        </div>
+
+        <!-- Strings -->
+        <div>
+          <span class="target-fix" id="accordion2"></span>
+          <a href="#accordion2" id="open-accordion2" title="open">Strings</a>
+          <a href="#accordion" id="close-accordion2" title="close">Strings</a>
+          <div class="accordion-content">
+            <p>
+              Since JavaScript does not allow for explicit type declaration we
+              can do our best to make it know what we want.
+            </p>
+            <p>
+              One way to do it is to wrap it in the object we want it to be a
+              type of.
+            </p>
+            <p>
+              We can check the type of the object with the method typeof() which
+              returns a string of the type We can then use console.log() to
+              print what it returns to check it.
+            </p>
+            <pre class="prettyprint lang-js"><code >
+              // for String                 
+              const string_const = String("jupiter")
+              console.log(typeof(string_const));
+              console.log(string_const);
+              // The output is: 
+              <samp>
+                string
+                jupiter
+              </samp>
+
+              // And for Number
+              const number_const = Number("12")
+              console.log(typeof(number_const ))
+              console.log(number_const );
+              // The output is: 
+              <samp>
+                number
+                12
+              </samp></code>
+            </pre>
+            <p>
+              Even if we initialize the 12 with quotation marks it will still be
+              cast to Number thanks to the wrapper
+            </p>
+            <p>
+              If we want to represent a number with two decimals we can achieve
+              it in two ways. We can make it be a string, or we can use the
+              .toFixed() method.
+            </p>
+            <pre class="prettyprint"><code >
+              // String
+              const number = "1.10";
+              console.log(number);
+              // Output:
+              <samp>
+                1.10
+              </samp>
+              // .toFixed()
+              // Casting the string "1.10" to a number, thus removing the last 0
+              const number2 = Number(number); 
+              // Printing the number with two decimals with the toFixed() method
+              // We pass the number 2 to indicate the amount of decimals
+              console.log(number2.toFixed(2));
+              <samp>
+                1.10
+              </samp></code>
+            </pre>
+            <p>
+              In JavaScript Strings are essentially arrays of chars. Thanks to
+              this fact, we can use indexes to retrieve a specific character.
+            </p>
+            <pre class="prettyprint"><code >
+              const letters = "abc";
+              // to grab the letter 'c' we can do the following:
+              letters[2];
+              
+              // the issue is that this returns the letter,
+              // so we best store it somewhere.
+              const letter = letters[2];
+              console.log(letter);
+              // Output:
+              <samp>
+                "c"
+              </samp></code>
+            </pre>
+          </div>
+        </div>
+
+        <!-- Objects -->
+        <div>
+          <span class="target-fix" id="accordion3"></span>
+          <a href="#accordion3" id="open-accordion3" title="open">Objects</a>
+          <a href="#accordion" id="close-accordion3" title="close">Objects</a>
+          <div class="accordion-content">
+            <p>
+              Objects in JavaScript are made by surrounding one or more key
+              value pairs in a curly brace
+            </p>
+            <pre class="prettyprint"><code >
+              const myObj = {"message": "Hello, earthling! I bring peace."};</code>
+            </pre>
+            <p>We can assign additional values like this:</p>
+            <pre class="prettyprint"><code >
+              myObj.type = "sms";
+              console.log(myObj);
+              // Output:
+              <samp>
+                {
+                  message: 'Hello, earthling! I bring peace.',
+                  type: 'sms'
+                }
+              </samp></code>
+            </pre>
+            <p>
+              If we want to add a boolean as an attribute then we declare it
+              true or false without quotation marks like this
+            </p>
+            <pre class="prettyprint"><code>
+              myObj.isActive = true;
+              console.log(myObj);
+              // Output:
+              <samp>
+                {
+                  message: 'Hello, earthling! I bring peace.',
+                  type: 'sms',
+                  isActive: true
+                }
+              </samp></code>
+            </pre>
+            <p>
+              We can retrieve the specific attributes of objects by calling
+              objectName.keyName
+            </p>
+            <pre class="prettyprint"><code>
+              const value = myObj.message;
+              console.log(value);
+              // Output:
+              <samp>
+                'Hello, earthling! I bring peace.'
+              </samp></code>
+            </pre>
+            <p>
+              If we want to remove a property from an object we can simply call
+              delete and the property name
+            </p>
+            <pre class="prettyprint"><code>
+              delete myObj.isActive;
+              console.log(value);
+              // Output:
+              <samp>
+                {
+                  message: 'Hello, earthling! I bring peace.',
+                  type: 'sms'
+                }
+              </samp></code>
+            </pre>
+          </div>
+        </div>
+        <!-- Arrays -->
+        <div>
+          <span class="target-fix" id="accordion4"></span>
+          <a href="#accordion4" id="open-accordion4" title="open"> Arrays </a>
+          <a href="#accordion" id="close-accordion4" title="close"> Arrays </a>
+          <div class="accordion-content">
+            <p>
+              To initialize an array in JavaScript you simply place your
+              attributes in between two square brackets separated by a comma
+              like this:
+            </p>
+            <pre class="prettyprint"><code>
+                const letters = ["a","b","c", 1, 3, false, myObj];</code>
+            </pre>
+            <p>To add values to an array you have to use the push() method</p>
+            <pre class="prettyprint"><code>
+              let friend1 = {name:"peter", liar: false};
+              let friend2 = {name: "Sandy", liar: false};
+              let friend3 = {name: "Mandy", liar :true};
+
+              friends.push(friend1);
+              friends.push(friend2);
+              friends.push(friend3);
+
+              console.log("Printing the array of friends\n");
+              console.dir(friends);
+              // Output:
+              <samp>
+                <span class="nocode">Printing the array of friends</span>
+
+                [
+                  { name: 'peter', liar: false },
+                  { name: 'Sandy', liar: false },
+                  { name: 'Mandy', liar: true }
+                ]
+              </samp></code>
+          </pre>
+            <p>
+              To search the contents of an array you can use indexOf() it will
+              return the index in the array where the first occurrence of the
+              passed variable is, if it exists. If its not found then it will
+              return -1
+            </p>
+            <pre class="prettyprint">
+            <code>
+              console.log("indexOf friend2:", friends.indexOf(friend2));
+              // Output:
+              <samp>
+                indexOf friend2: 1
+              </samp></code>
+          </pre>
+            <p>
+              If you want to insert something into the array at a specific
+              location you can use splice(). <br />Splice is used to remove
+              things from a specific index as well as potentially insert. <br />
+              <br />
+              It's syntax is as follows:<br />
+              splice(start: number(the starting index),<br />
+              deleteCount: number(amount of items to delete(from starting
+              index)),<br />
+              ...items (any amount of items to insert(optional)))
+              <br /><br />
+              example: splice(index, numberToDelete, itemToInsert,
+              itemToInsert2)
+            </p>
+            <pre class="prettyprint">
+              <code>
+                let friend4 = {name: "New Friend", liar: false};
+                // inserting friend4 into the array's index 2 without removing
+                friends.splice(2,0, friend4);
+                console.log(friends);
+                // Output:
+                <samp>
+                  [
+                    { name: 'peter', liar: false },
+                    { name: 'Sandy', liar: false },
+                    { name: 'New Friend', liar: false },
+                    { name: 'Mandy', liar: true }
+                  ]
+                </samp></code>
+            </pre>
+            <p>
+              If you want to remove the last element of a list you can use the
+              pop() method.
+              <br />
+              It removes and returns the last element of a list.
+              <br />
+              Here is an example of it in action:
+            </p>
+            <pre class="prettyprint">
+              <code>
+                console.log(friends);
+                // Output:
+                <samp>
+                  [
+                    { name: 'peter', liar: false },
+                    { name: 'Sandy', liar: false },
+                    { name: 'New Friend', liar: false },
+                    { name: 'Mandy', liar: true }
+                  ]
+                </samp>
+                friends.pop();
+                console.log(friends);
+                // Output:
+                <samp>
+                  [
+                    { name: 'peter', liar: false },
+                    { name: 'Sandy', liar: false },
+                    { name: 'New Friend', liar: false }
+                  ]
+                </samp>
+                const poppedFriend = friends.pop();
+                console.log("Friend list:")
+                console.log(friends);
+                console.log("Popped friend:")
+                console.log(poppedFriend);
+                // Output:
+                <samp>
+                  <nocode>Friend list:</nocode>
+                  [
+                    { name: 'peter', liar: false },
+                    { name: 'Sandy', liar: false }
+                  ]
+                  <nocode>Popped friend:</nocode>
+                  { name: 'New Friend', liar: false }
+                </samp></code>
+            </pre>
+            <p>
+              You can also iterate through the items of an array with the use of
+              the spread operator.
+              <br />
+              If you for example wanted to copy the contents of one array to
+              another, the easiest way would be to do something like this
+            </p>
+            <pre class="prettyprint">
+              <code>
+                let fakeFriends = [...friends];</code>
+            </pre>
+            <p>
+              This will take one at a time, the contents of friends and place it
+              in fakeFriends, this is different to
+              <br /><code class="prettyprint">let fakeFriends = friends;</code
+              ><br />
+              as this only makes fakeFriends a reference of friends, and not a
+              new copy
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <footer class="footer">
+      GitHub repo -->
+      <a href="https://github.com/IroniX2/NodeJS">
+        <img
+          src="/GitHub-32px.png"
+          alt="github logo"
+          style="width: 18px; height: 18px"
+        />
+      </a>
+    </footer>
+  </body>
+</html>

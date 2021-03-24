@@ -1,0 +1,90 @@
+  /*_________________  Accordion________________________________________*/
+  .accordion {
+    position: relative;
+    margin: 60px auto;
+    width: 70%;
+  }
+  
+  [id*="open-accordion"], [id*="close-accordion"] {
+    background: #f0f0f0;
+    border-bottom: 1px solid #fff;
+    line-height: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 900px;
+    border-bottom-width: 0px;
+    margin-bottom: 4px;
+    box-shadow: 1px 2px 1px 0px rgba(0,0,0,0.2) ;
+  }
+  
+  [id*="close-accordion"] {
+    display: none;
+  }
+  
+  .accordion a {
+    color: rgb(58, 58, 58);
+    font-size: 1.25em;
+    font-weight: normal;
+    padding-left: 2%;
+    text-decoration: none;
+    text-shadow: none;
+    margin-bottom: 15px;
+  }
+  
+  [id*="open-accordion"]:after, [id*="close-accordion"]:after {
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(192, 192, 192, 0.6);
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    z-index: 100;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+  }
+  
+  .target-fix {
+    display: block;
+    top: 0;
+    left: 0;
+    position: fixed;
+  }
+  
+  .accordion-content {
+    background: #fff;
+    height: 0;
+    margin: -1px auto 0;
+    padding: 0 2.5%;
+    position: relative;
+    overflow: hidden;
+    width: 800px;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1) ;
+    margin-bottom: 25px;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+  }
+  
+  .accordion span:target ~ .accordion-content {
+    display: block;
+    height: auto;
+    padding-bottom: 25px;
+    padding-top: 10px;
+  }
+  
+  .accordion span:target ~ [id*="close-accordion"] {
+    display: block;
+  }
+  
+  .accordion span:target ~ [id*="open-accordion"] {
+    display: none;
+  }
+  
+  .accordion span:target ~ [id*="close-accordion"]:after {
+    border-top: 10px solid rgba(100, 100, 100, 0.37);
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }

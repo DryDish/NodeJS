@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/text.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" href="css/display-style.css" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <script src="js/run_prettify.js"></script>
+    <article>
+      <title>Session Two</title>
+    </article>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-elements">
+        <a class="navbar-text" href="/home">Home</a>
+        <a class="navbar-text" href="/introduction">Introduction</a>
+        <a class="navbar-text selected" href="/express">Express</a>
+      </div>
+    </nav>
+    <article>
+      <h2 class="banner"></h2>
+      <div class="accordion">
+        <!-- span to target fix closing accordion -->
+        <span class="target-fix" id="accordion"></span>
+
+        <!-- What is Express -->
+        <div>
+          <!-- span to target fix accordion -->
+          <span class="target-fix" id="accordion1"></span>
+
+          <!-- Link to open accordion, hidden when open -->
+          <a href="#accordion1" id="open-accordion1" title="open"
+            >What is Express</a
+          >
+
+          <!-- Link to close accordion, hidden when closed -->
+          <a href="#accordion" id="close-accordion1" title="close"
+            >What is Express</a
+          >
+
+          <!-- Accordion content goes in this div -->
+          <div class="accordion-content">
+            <p>
+              <b>Web Applications</b>
+              <br />
+              Express is a minimal and flexible Node.js web application
+              framework that provides a robust set of features for web and
+              mobile applications. <br /><br /><b>APIs</b><br />
+              With a myriad of HTTP utility methods and middleware at your
+              disposal, creating a robust API is quick and easy.
+              <br /><br /><b>Performance</b><br />
+              Express provides a thin layer of fundamental web application
+              features, without obscuring Node.js features that you know and
+              love.
+              <br /><br /><b>Frameworks</b><br />
+              Many popular frameworks are based on Express.
+            </p>
+          </div>
+        </div>
+
+        <!-- How to create an express project -->
+        <div>
+          <span class="target-fix" id="accordion2"></span>
+          <a href="#accordion2" id="open-accordion2" title="open"
+            >How to create an express project</a
+          >
+          <a href="#accordion" id="close-accordion2" title="close"
+            >How to create an express project</a
+          >
+          <div class="accordion-content">
+            <p>
+              We will have to have installed NPM since it is required for
+              installing Express.
+              <br />
+              Once NPM is installed we must create a package.json file on the
+              root of our project.
+              <br />
+              Inside it we must type {} to make it a valid empty json file.
+              <br /><br />
+              After we have done that we can open our terminal of choice and
+              type
+              <br /><br /><code class="prettyprint">npm install express</code
+              ><br /><br />
+              This will download all the required files and all we need to do
+              now is create an app.js file to begin.
+              <br /><br /><br />
+              On top of the app.js file we need to import and initialize
+              express. The way we do that is:
+            </p>
+            <pre class="prettyprint"><code>
+              const express = require("express");
+              const app = express();</code>
+            </pre>
+            <p>
+              Once This is done we should prepare a port for express to listen
+              on.
+              <br />We declare a PORT variable and assign it either the user
+              declared port (from the command: <code>PORT=portNumberHere</code>)
+              or if none is given then default to 8080. <br />We prepare an if
+              statement to catch any errors and print them to the console and a
+              console printout of what port the express app is running on.
+            </p>
+            <pre class="prettyprint"><code>
+              const PORT = process.env.PORT || 8080;
+
+              app.listen(PORT, (error) => {
+                if (error) {
+                  console.log(error);
+                }
+                console.log("Server is running on port:", PORT);
+              });</code>
+              </pre>
+            <p>
+              The Express API is now ready to listen to on a specified port.
+            </p>
+          </div>
+        </div>
+
+        <!-- Setting up the API -->
+        <div>
+          <span class="target-fix" id="accordion3"></span>
+          <a href="#accordion3" id="open-accordion3" title="open"
+            >Setting up the API
+          </a>
+          <a href="#accordion" id="close-accordion3" title="close">
+            Setting up the API
+          </a>
+          <div class="accordion-content">
+            <p>
+              Now that we have told Express what port to listen on we can
+              prepare some endpoints.
+              <br />We are making a CRUD REST API, CRUD stands for Create, Read,
+              Update, Delete. In order to make it we will prepare a design for
+              it, it can look something like this:
+            </p>
+            <pre><code>
+--------------------------------------------------------------------------------------------------------------
+| HTTP Method                 | Endpoint                                | Endpoint                           |
+|                             | /plants                                 | /plants/id                         |
+--------------------------------------------------------------------------------------------------------------
+| GET                         | Retrieve a list of all plants           | Retrieve plant by id	             |
+--------------------------------------------------------------------------------------------------------------
+| POST                        | Create a new plant obj and store it     | N/A                                |
+--------------------------------------------------------------------------------------------------------------
+| PATCH                       | N/A                                     | Update a plant with the given ID   |
+--------------------------------------------------------------------------------------------------------------
+| DELETE                      | N/A                                     | Delete a plant with the given ID   |
+--------------------------------------------------------------------------------------------------------------</code>
+							</pre>
+            <p>
+              We will begin with the read since that is the GET part and that
+              should always come first.
+              <br />Before we begin, however, we need to simulate a data storage
+              as we don't have a proper database running.
+              <br />
+              <br />We will create a plant list named plants and place in some
+              dummy plants. <br />Additionally, we will also create an id
+              counter, and set it to 3, so that we may increment it if we get a
+              new plant to store.
+            </p>
+            <pre class="prettyprint"><code>
+              let id = 3;
+
+              let plants = [
+                {
+                  id: 1,
+                  title: "Alnus glutinosa",
+                },
+                {
+                  id: 2,
+                  title: " Ilex verticillata",
+                },
+              ];</code>
+            </pre>
+            <p>We are now ready to implement the REST API</p>
+          </div>
+          <!-- GET -->
+          <div>
+            <span class="target-fix" id="accordion4"></span>
+            <a href="#accordion4" id="open-accordion4" title="open"> GET </a>
+            <a href="#accordion" id="close-accordion4" title="close"> GET </a>
+            <div class="accordion-content">
+              <p>We will begin by creating the GET endpoints.</p>
+              <pre class="prettyprint"><code>
+                // returns all plants
+                app.get("/plants", (req, res) => {
+                  res.send(plants);
+                });
+
+                // returns a plant by ID
+                app.get("/plants/:id", (req, res) => {
+                  const id = parseInt(req.params.id)
+                  const plant = listOfPlants.find(plant => plant.id === id);
+                  if (plant === undefined)
+                  {
+                      res.status(404)
+                      res.send({error: "Id was not found"});
+                  }
+                  res.send(plant);
+                });</code>
+              </pre>
+              <p>
+                The <code>/plants</code> endpoint simply returns the entire
+                dataset of plants. <br />Where as the
+                <code>/plants/:id</code> is getting the desired plant ID as a
+                parameter, Our code then goes through the list of plants and
+                returns any with the matching ID. Since our IDs can't be
+                duplicate it will only ever return one plant, or return an error
+                in the even the plant ID was not found.
+              </p>
+            </div>
+          </div>
+          <!-- POST -->
+          <div>
+            <span class="target-fix" id="accordion5"></span>
+            <a href="#accordion5" id="open-accordion5" title="open"> POST </a>
+            <a href="#accordion" id="close-accordion5" title="close"> POST </a>
+            <div class="accordion-content">
+              <p>
+                The POST method is pretty straight forward.
+                <br /><br />We receive a plant from the host, we add our ID to
+                it and then add it to our list. <br />We also respond with the
+                same plant object we are adding, so that the host can verify
+                that the data matches what he intended to send.
+              </p>
+              <pre class="prettyprint"><code>
+                app.post("/plants", (req, res) => {
+                  const newPlant = req.body;
+                  
+                  // add the id and then increment it
+                  newPlant.id = id++;
+                  
+                  // send the data back
+                  res.send({ newPlant });
+                  
+                  // add to array:
+                  plants.push(newPlant);
+                });</code>
+              </pre>
+            </div>
+          </div>
+          <!-- PATCH -->
+          <div>
+            <span class="target-fix" id="accordion6"></span>
+            <a href="#accordion6" id="open-accordion6" title="open"> PATCH </a>
+            <a href="#accordion" id="close-accordion6" title="close"> PATCH </a>
+            <div class="accordion-content">
+              <p>
+                The PATCH method is a little more complicated than the POST as
+                we need to update an existing entree.
+                <br /><br />We first set a flag called updated to false. The
+                purpose of this flag is to check wether the ID was found.
+                <br />
+                <br />We then use the map() method to iterate though our storage
+                for a plant with a matching ID. <br />If we find a matching ID,
+                we explode our current plant, then we explode the plant we
+                received in the body. <br />This will overwrite any pre-existing
+                values as well as add any new ones that where sent.
+                <br />
+                <br />Lastly we replace the ID with the original ID. This is to
+                prevent the host from ever changing the ID.
+              </p>
+              <pre class="prettyprint"><code>
+                app.patch("plants/:id", (req, res) => {
+                  let updated = false;
+                  plants = plants.map((plant) => {
+                    if (plant.id === Number(req.params.id)) {
+                      updated = true;
+                      return { ...plant, ...req.body, id: plant.id };
+                    }
+                    return plant;
+                  });
+                  if (updated === true)
+                  {
+                    const plant = listOfPlants.find(plant => plant.id === id);
+                    res.send(plant);
+                  } else 
+                  {
+                    res.status(404)
+                    res.send({error: "Id was not found"});
+                  }
+                });</code>
+              </pre>
+              <p>
+                If the plant ID was not found, we would not change the updated
+                to true, and return an error. <br />If it was, we retrieve it
+                and send it back in the response.
+              </p>
+            </div>
+          </div>
+          <!-- DELETE -->
+          <div>
+            <span class="target-fix" id="accordion7"></span>
+            <a href="#accordion7" id="open-accordion7" title="open"> DELETE </a>
+            <a href="#accordion" id="close-accordion7" title="close">
+              DELETE
+            </a>
+            <div class="accordion-content">
+              <p>
+                The DELETE method is another pretty straightforward one.
+                <br />
+                <br />We store the ID of the plant to delete in delete_id.
+                <br />We then use the list.filter() method to return all plants
+                that do not have the id that was sent by the host.
+              </p>
+              <pre class="prettyprint"><code>
+                app.delete("/plants/:id", (req, res) => {
+                  const deleteId = Number(req.params.id);
+                  // count total plants before deletion
+                  let plantsTotalBefore = plants.length;
+                  // replace plants list with a list of all plants that do not have the received ID
+                  plants = plants.filter((plant) => plant.id != deleteId);
+                  // recount total plants
+                  let plantsTotalAfter = plants.length;
+                  
+                  // check if total plants has been reduced
+                  if (plantsTotalBefore = plantsTotalAfter)
+                  {
+                    res.status(404)
+                    res.send({error: "Id was not found"});
+                  } else 
+                  {
+                    res.send({status: "success"});
+                  }
+                });</code>
+              </pre>
+              <p>I hope you enjoyed my totally-not-rushed website, and sorry for its appearance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <footer class="footer">
+      GitHub repo -->
+      <a href="https://github.com/IroniX2/NodeJS">
+        <img
+          src="/GitHub-32px.png"
+          alt="github logo"
+          style="width: 18px; height: 18px"
+        />
+      </a>
+    </footer>
+  </body>
+</html>
