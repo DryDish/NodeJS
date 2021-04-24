@@ -22,6 +22,10 @@ app.get("/", (req, res) => {
   res.sendFile(htmlFolder + "welcome.html");
 });
 
+app.get("/crypto", (req, res) => {
+  res.sendFile(htmlFolder + "crypto.html");
+});
+
 app.get("/dragons", (req, res) => {
   res.sendFile(htmlFolder + "dragons.html");
 });
@@ -107,9 +111,10 @@ app.use(express.static(__dirname + "/public"));
 
 const PORT = process.env.PORT || 8080;
 console.log(PORT);
-app.listen(PORT, (error) => {
+
+const server = app.listen(PORT, (error) => {
   if (error) {
     console.log(error);
   }
-  console.log("Server is running on port:", PORT);
+  console.log("Server is running on port:", server.address().port);
 });

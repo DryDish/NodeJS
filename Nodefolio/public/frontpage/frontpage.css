@@ -1,0 +1,9 @@
+.navbarText {
+    margin: 0px 5px;
+}
+#navbarBeardIcon {
+    width: 25px;
+}
+.footer {
+    display: flex;
+}

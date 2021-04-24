@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- BitCoin -->
+    <div>
+      <p id="bitcoin">Here is the current price of BitCoin:</p>
+    </div>
+    <!-- Ethereum -->
+    <div id="ethereum">
+      <p>Here is the current price of Ethereum:</p>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    // id 90 = BTC
+    /*
+     $.get("https://api.coinlore.net/api/ticker/?id=90", (data) => {
+       console.log("BitCoin", data);
+       const bitcoinPrice = document.getElementById("bitcoin");
+       bitcoinPrice.innerText += "  $" + data[0].price_usd;
+     });
+     // id 80 = ETH
+     $.get("https://api.coinlore.net/api/ticker/?id=80", (data) => {
+       console.log("Ethereum", data);
+       const ethereumPrice = document.getElementById("ethereum");
+       ethereumPrice.innerText += "  $" + data[0].price_usd;
+     });
+     */
+    // ID 90 = BTC
+    fetch("https://api.coinlore.net/api/ticker/?id=90")
+      .then((response) => response.json())
+      .then((result) => {
+        const bitcoinPrice = document.getElementById("bitcoin");
+        bitcoinPrice.innerText += "  $" + result[0].price_usd;
+    });
+
+    // ID 80 = ETH
+    fetch("https://api.coinlore.net/api/ticker/?id=80")
+      .then((response) => response.json())
+      .then((result) => {
+        const ethereumPrice = document.getElementById("ethereum");
+        ethereumPrice.innerText += "  $" + result[0].price_usd;
+    });
+
+    // try to convert the above with async / await ^
+  </script>
+</html>

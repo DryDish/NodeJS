@@ -1,0 +1,46 @@
+mongodb: collections <=> mysql: tables
+
+[
+    {
+        key: "value"
+    }
+]
+
+[
+    {
+        team: "Arsenal",
+        players: []
+    },
+    {
+        profit: 123123123
+    }
+]
+
+use mysql:
+when you have a rigid schema
+when you have many relations
+
+
+
+use mongodb:
+wen you don't have a fixed schema
+when you don't mind duplicating data (no relation support)
+great for simple applications
+great for rapid prototyping
+great sharding and cluster support
+If you are working with Node (Javascript) then JSON seems really easy rather
+than dealing with ORM s
+
+beware:
+a lot fo handling for mongodb happens in the application layer
+you can really mess things up easily with mongodb
+mongodb depends on the programmer being good rather than the database being
+    well-designed and allowing for "bad" programmers to use
+
+Would you ever combine mysql with mongodb?
+    Often seen use case in real life:
+    - mysql for business data
+    - mongodb for logs
+
+why use mongodb at all:
+
