@@ -20,13 +20,22 @@ const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8"
 const frontpage = fs.readFileSync(__dirname + "/public/frontpage/frontpage.html", "utf-8");
 const projects = fs.readFileSync(__dirname + "/public/projects/projects.html", "utf-8");
 const contact = fs.readFileSync(__dirname + "/public/contact/contact.html", "utf-8");
+const resume = fs.readFileSync(__dirname + "/public/resume/resume.html", "utf-8");
 
 app.get("/", (req, res) => {
     res.send(nav + frontpage + footer);
 });
 
+app.get("/home", (req, res) => {
+    res.redirect("/");
+});
+
 app.get("/projects", (req, res) => {
     res.send(nav + projects + footer);
+});
+
+app.get("/resume", (req, res) => {
+    res.send(nav + resume + footer);
 });
 
 app.get("/contact", (req, res) => {

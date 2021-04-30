@@ -1,6 +1,8 @@
 #footer-about {
-    height: 10px;
+    height: 1vh;
     display: flex;
     justify-content: center;
+    text-decoration: none;
+    color: rgb(190, 190, 190);
 }
 
