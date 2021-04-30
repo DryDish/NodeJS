@@ -1,30 +1,23 @@
 {
   "name": "nodefolio",
-  "version": "0.0.1",
-  "description": "A portfolio done in NodeJS",
+  "version": "0.0.2",
+  "description": "A personal portfolio project using Node",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "cross-env PORT=80 nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IroniX2/NodeJS.git"
   },
   "keywords": [
-    "node",
-    "personal",
-    "portfolio",
-    "NodeJS"
+    "Portfolio",
+    "Node",
+    "Personal"
   ],
-  "author": "Alex M",
+  "author": "Alex Maccagnan",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/IroniX2/NodeJS/issues"
-  },
-  "homepage": "https://github.com/IroniX2/NodeJS#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
+    "express": "^4.17.1"
   }
 }

@@ -1,31 +1,26 @@
-const footerCopyright = document.getElementById("footerAbout");
-footerCopyright.innerText = "© Copyright " + new Date().getFullYear();
-
-//fetch("/api/projects").then(res => res.json()).then(console.log());
+// fetch("/api/projects").then(res => res.json()).then(console.log);
 
 (async function getProjects() {
-  const response = await fetch("/api/projects");
-  const result = await response.json();
+    const response = await fetch("/api/projects");
+    const result = await response.json();
 
-  const projectsDiv = document.getElementById("projects");
+    const projectsDiv = document.getElementById("projects");
 
-  result.projects.map((project) => {
-    const projectDiv = document.createElement("div");
+    result.projects.map(project => {
+        const projectDiv = document.createElement("div");
 
-    const projectTitle = document.getElementById("h2");
-    projectTitle.classList.add("project-title");
-    projectTitle.innerText = project.title;
+        const projectTitle = document.createElement("h2");
+        projectTitle.classList.add("project-title");
+        projectTitle.innerText = project.title;
 
+        const projectDescription = document.createElement("p");
+        projectDescription.classList.add("project-description");
+        projectDescription.innerText = project.description;
 
-    const projectDescription = document.getElementById("p");
-    projectDescription.classList.add("project-description");
-    projectDescription.innerText = project.description;
-
-    projectsDiv.appendChild(projectDiv);
-    projectsDiv.appendChild(projectTitle);
-  });
-
-
+        projectDiv.appendChild(projectTitle);
+        projectDiv.appendChild(projectDescription);
+        projectsDiv.appendChild(projectDiv);
+    });
 })();
 
-console.log("fuck me");
+
