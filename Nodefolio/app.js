@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+require('dotenv').config();
+  
+const fs = require("fs");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
@@ -12,7 +16,6 @@ const contactRouter = require("./routes/contact");
 app.use(projectsRouter.router);
 app.use(contactRouter.router);
 
-const fs = require("fs");
 
 const nav = fs.readFileSync(__dirname + "/public/nav/nav.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");

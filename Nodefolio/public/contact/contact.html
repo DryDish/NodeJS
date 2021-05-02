@@ -6,23 +6,56 @@
     </p>
   </div>
 
-  <form method="POST" action="/api/contact">
+  <form onsubmit="createForm(this)">
+    <!-- method="POST" action="/api/contact" -->
     <label>Name</label>
-    <input type="text" name="name" placeholder="name" />
+    <input type="text" name="name" id="form-name" placeholder="name" />
     <label>Email</label>
-    <input type="email" name="email" placeholder="email" />
+    <input type="email" name="email" id="form-email" placeholder="email" />
     <label>Subject</label>
-    <input type="subject" name="subject" placeholder="subject" />
-    <br>
+    <input
+      type="subject"
+      name="subject"
+      id="form-subject"
+      placeholder="subject"
+    />
+    <br />
     <label>Message</label>
     <textarea
       type="text"
       name="message"
+      id="form-message"
       placeholder="What are you thinking about?"
       rows="20"
       cols="84"
-      
     ></textarea>
     <button type="submit">Contact Me</button>
   </form>
 </div>
+<script>
+  function createForm(form) {
+    let entries = new FormData(form);
+    let values = {};
+    const url = "/api/contact";
+
+    for (let entry of entries.entries()) {
+      values[entry[0]] = entry[1];
+    }
+
+    
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+      return "success";
+  }
+
+</script>
