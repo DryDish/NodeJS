@@ -3,16 +3,13 @@ const nodemailer = require("nodemailer");
 function sendMail(name, email, subject, message)
 {
   async function main() {
-    console.log("user:", process.env.EMAIL_USERNAME);
-    console.log("pass:",process.env.EMAIL_PASSWORD);
-    console.log("smtp",process.env.EMAIL_SMTP);
-    console.log("port",process.env.EMAIL_PORT);
-
+    console.log("--------------------------- MAIL MESSAGE ---------------------------" );
     console.log("user input - name:", name);
     console.log("user input - email:", email);
     console.log("user input formatted -", name + " <" + email + ">");
     console.log("user input - subject:", subject);
     console.log("user input - message:", message);
+    console.log("------------------------- MAIL MESSAGE END -------------------------" );
 
     if (name === undefined)
     {
