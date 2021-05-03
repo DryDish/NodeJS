@@ -30,8 +30,6 @@ async function sendMail(name, email, subject, message) {
     },
   });
 
-  // TODO -- insert values from form here into object and load them below
-
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: name + " <nodefoliomailer@aol.com>", // sender address

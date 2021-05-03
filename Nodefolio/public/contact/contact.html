@@ -6,7 +6,7 @@
     </p>
   </div>
 
-  <form onsubmit="createForm(this)">
+  <form onreset="createForm(this)">
     <!-- method="POST" action="/api/contact" -->
     <label>Name</label>
     <input type="text" name="name" id="form-name" placeholder="name" />
@@ -29,7 +29,7 @@
       rows="20"
       cols="84"
     ></textarea>
-    <button type="submit">Contact Me</button>
+    <button type="reset">Contact Me</button>
   </form>
   <script src="./contact.js"></script>
 </div>

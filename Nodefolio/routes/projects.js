@@ -5,7 +5,7 @@ const projects = [
         title: "Nodefolio",
         description: "Created a personal portfolio with Node.js",
         gitURL: "https://github.com/IroniX2/NodeJS/tree/main/Nodefolio",
-        technologiesInvoled: ["Node.js", "Html", "CSS"]
+        technologiesInvolved: ["Node.js", "Html", "CSS"]
     }
 ];
 
