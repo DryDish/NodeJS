@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const mail = require("../public/contact/mail.js");
+const mail = require("../nodemailer/mail");
 
 
 router.post("/api/contact", (req, res) => {
