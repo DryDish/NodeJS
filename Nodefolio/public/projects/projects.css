@@ -1,0 +1,14 @@
+.technology {
+    margin-left: 1vw;
+}
+
+.project-technologies {
+    display: flex;
+    flex: content;
+   
+}
+
+.url-link {
+    text-decoration: none solid;
+    color: darkgrey;
+}
