@@ -1,0 +1,32 @@
+#contact-form{
+    
+}
+
+#contact-form input, textarea{
+   border-radius: 5px;
+   padding: 0.3rem;
+   resize: none;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#input-fields {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#input-textarea {
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+#input-textarea label {
+    margin-right: 1vh;
+}
+
+#input-textarea button{
+   max-height: 5vh;
+   align-self: flex-end;
+   margin-left: 1vh;
+   
+}

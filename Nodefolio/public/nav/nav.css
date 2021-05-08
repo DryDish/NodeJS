@@ -33,6 +33,7 @@ text {
     border-radius: 25px;
     color: rgb(255, 254, 254);
     background-color: rgba(82, 82, 82, 0.418);
+    padding-bottom: 3vh;
 }
 
 #main-content {

@@ -1,35 +1,41 @@
+<link rel="stylesheet" href="./contact.css" />
 <div class="information-panel">
   <div class="presentation-text" id="contact-info">
     <p>
-      If you would like to contact me, please fill out the form below. I will
-      get back to you no later than 4 business days after your message.
+      If you would like to contact me, please fill out the form below.
+      <br />
+      I will get back to you no later than 4 business days after your message.
     </p>
   </div>
-  
-  <form onreset="createForm(this)">
-    <!-- method="POST" action="/api/contact" -->
-    <label>Name</label>
-    <input type="text" name="name" id="form-name" placeholder="name" />
-    <label>Email</label>
-    <input type="email" name="email" id="form-email" placeholder="email" />
-    <label>Subject</label>
-    <input
-      type="subject"
-      name="subject"
-      id="form-subject"
-      placeholder="subject"
-    />
-    <br />
-    <label>Message</label>
-    <textarea
-      type="text"
-      name="message"
-      id="form-message"
-      placeholder="What are you thinking about?"
-      rows="20"
-      cols="84"
-    ></textarea>
-    <button type="reset">Contact Me</button>
-  </form>
+  <div id="input-fields">
+    <form id="contact-form" onreset="createForm(this)">
+      <!-- method="POST" action="/api/contact" -->
+      <label>Name</label>
+      <input type="text" name="name" id="form-name" placeholder="name" />
+      <label>Email</label>
+      <input type="email" name="email" id="form-email" placeholder="email" />
+      <label>Subject</label>
+      <input
+        type="subject"
+        name="subject"
+        id="form-subject"
+        placeholder="subject"
+      />
+      <br />
+      <br /><br />
+      <div id="input-textarea">
+        <label>Message</label>
+        <textarea
+          type="text"
+          name="message"
+          id="form-message"
+          placeholder="What are you thinking about?"
+          rows="20"
+          cols="62"
+        ></textarea>
+        <button type="reset">Contact Me</button>
+      </div>
+    </form>
+  </div>
   <script src="./contact.js"></script>
 </div>
